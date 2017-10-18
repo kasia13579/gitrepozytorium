@@ -1,2 +1,38 @@
 body {
-    background-color:red 
+    font-family: arial, tahoma, verdana, serif;
+    font-size: 12pt;
+    line-height: 1.5em;
+    background-color:red;
+    }
+    
+h1 {
+    font-size: 250%;
+}
+
+h1, h2{
+    text-align: center;
+}
+
+.pochylony{
+    font-style: italic;
+}
+
+.pogrubiony{
+    font-weight: bold;
+    }
+
+li{
+    font: italic bold 16px/24px serif;
+}
+
+.tekst1 {
+    color: #00FF00;
+}
+
+.tekst2 {
+    color:#00FFF0;
+}
+
+
+
+
