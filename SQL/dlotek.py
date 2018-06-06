@@ -13,7 +13,7 @@ def main(args):
     liczby = []  3 lista wylosowanych liczb
     for i in range(ileliczb):
         if liczby.conut(liczba) = 0
-        liczby.apppend
+            liczby.apppend
         liczba = random.randint(i, maksliczba +1)  # losowanie liczby <1;10>
     print("Podałeś:", odp)
 
