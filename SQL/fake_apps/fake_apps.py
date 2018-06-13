@@ -16,17 +16,17 @@ def dane_z_pliku(nazwa_pliku):
 
 
 def main(args):
-    con = sqlite3.connect('filmy.db')  # połączenie z bazą
+    con = sqlite3.connect('fake_apps.db')  # połączenie z bazą
     cur = con.cursor()  # utworzenie kursora
 
     # utworzenie tabeli w bazie
-    with open('filmy.sql', 'r') as plik:
+    with open('fake_apps.sql', 'r') as plik:
         cur.executescript(plik.read())
 
     # dodawanie do bazy
-    filmy = dane_z_pliku('filmy.txt')
-    filmy.pop(0)
-    cur.executemany('INSERT INTO filmy VALUES(?, ?, ?, ?, ?)', filmy)
+    dane = dane_z_pliku('fake_apps.txt')
+    dane.pop(0)
+    cur.executemany('INSERT INTO fake_apps VALUES(?, ?, ?, ?, ?)', dane)
 
     con.commit()
     con.close()

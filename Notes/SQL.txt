@@ -1,0 +1,12 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-05-09T07:35:33+02:00
+
+====== SQL ======
+Created środa 09 maja 2018
+
+- PRIMARY KEY - klucz   tworzenie bazy :
+ sqlite3 nazwa bazy < nazwa tego z czego ma byc
+ db < sql
+rm szkola db
+SELECT * ( WSZYSTKIE REKORDY ) FROM tbKlasy ( nazwa tabeli);

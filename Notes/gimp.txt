@@ -1,0 +1,16 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-03-19T09:18:12+01:00
+
+====== gimp ======
+Created poniedziałek 19 marzec 2018
+
+cyjan G+B
+magenta R+B
+żółty R+G
+
+
+przestrzeń koloru
+gif!
+psd to format photoshopa
+xcf to format gimpa

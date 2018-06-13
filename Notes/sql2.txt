@@ -1,0 +1,40 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-06-06T08:35:17+02:00
+
+====== sql2 ======
+Created środa 06 czerwca 2018
+
+sqlite> SELECT COUNT(name) FROM fake_apps WHERE downloads >(SELECT AVG(downloads) FROM fake_apps);
+103
+sqlite> SELECT COUNT(name) FROM fake_apps WHERE downloads <(SELECT AVG(downloads) FROM fake_apps);
+97
+sqlite> SELECT COUNT(name) FROM fake_apps;
+200
+sqlite> SELECT COUNT(id) FROM fake_apps;
+200
+SELECT name, downloads FROM fake_apps WHERE downloads >(SELECT AVG(downloads) FROM fake_apps);
+SELECT AVG(price) FROM fake_apps;
+sqlite> SELECT COUNT(name) FROM fake_apps WHERE price <(SELECT AVG(price) FROM fake_apps);
+158
+sqlite> SELECT COUNT(name) FROM fake_apps WHERE price >(SELECT AVG(price) FROM fake_apps);
+42
+sqlite> 
+sqlite> SELECT price, COUNT(*) FROM fake_apps GROUP BY price;
+0|73
+0.99|43
+1.99|42
+2.99|21
+3.99|9
+14.99|12
+sqlite> SELECT price, SUM(*) FROM fake_apps GROUP BY price;
+Error: wrong number of arguments to function SUM()
+sqlite> SELECT price, SUM(price) FROM fake_apps GROUP BY price;
+0|0
+0.99|42.57
+1.99|83.58
+2.99|62.79
+3.99|35.91
+14.99|179.88
+sqlite> 
+SELECT category, SUM(downloads) FROM fake_apps GROUP BY downloads;
