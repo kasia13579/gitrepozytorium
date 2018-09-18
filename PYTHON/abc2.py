@@ -5,16 +5,7 @@
 #
 #Program pobiera 3 liczby od użytkownika, a następnie wyświetla największą.
 #
-
-def maks(a, b, c):
-    m= None
-    if a > b:
-        if a > c:
-            m = a
-    elif b > c:
-        m = b
-        print("Najwieksza:" , m)
-        return m        
+       
 
 def main(args):
     a = int(input("Podaj 1. liczbę: "))
