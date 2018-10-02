@@ -6,17 +6,13 @@
 
 
 def main(args):
-    
-    a = int(input("Podaj a: "))
-
-    
-    while a < 75:
-            print()
- 
-                 
+    suma = 0
+    while suma <= 75:
+        liczba = int(input("Podaj liczbę: "))
+        suma = suma + liczba
+    print("Suma liczb:", suma)
     return 0
 
 if __name__ == '__main__':
     import sys
-    sys.exit(main(sys.argv))
-
+sys.exit(main(sys.argv))

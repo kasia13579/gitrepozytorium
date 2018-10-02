@@ -5,9 +5,13 @@
 #  
 
 
+
 def main(args):
-    return 0
+	
+	for i in range(10, 100):
+		if i %3 ==0 and i %2 == 0:
+			print (i)
 
 if __name__ == '__main__':
     import sys
-    sys.exit(main(sys.argv))
+sys.exit(main(sys.argv))
