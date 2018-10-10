@@ -8,7 +8,7 @@ import csv
 def dane_z_pliku(nazwa_pliku):
     dane = []  # taki nawias to pusta lista
     with open(nazwa_pliku, 'r', newline='', encoding='utf-8') as plik:
-            tresc = csv.reader(plik, delimiter='\t')
+            tresc = csv.reader(plik, delimiter=';')
             for rekord in tresc:
                 rekord = [x.strip() for x in rekord]  # usuwa puste,
             # niepotrzebna znaki (tralling spaces)
@@ -17,28 +17,30 @@ def dane_z_pliku(nazwa_pliku):
 
 
 def main(args):
-    con = sqlite3.connect('magazyn.db')  # połączenie z bazą
+    con = sqlite3.connect('szkola.db')  # połączenie z bazą
     cur = con.cursor()  # utworzenie kursora
 
     # utworzenie tabeli w bazie
-    #with open('apps.sql', 'r') as plik:
-    #    cur.executescript(plik.read())
+    # with open('szkola.sql', 'r') as plik:
+    #     cur.executescript(plik.read())
 
     # dodawanie danych do bazy
-    #dane = dane_z_pliku('dane_customers.txt')
-    #print(dane)
-    #dane.pop(0)  # usuń 1 rekord z listy
-    #cur.executemany('INSERT INTO dane_customers VALUES(?, ?, ?)', dane)
-    
-    dane = dane_z_pliku('dane_subscriptions.txt')
+
+    dane = dane_z_pliku('oceny.txt')
     print(dane)
     dane.pop(0)  # usuń 1 rekord z listy
-    cur.executemany('INSERT INTO dane_subscriptions VALUES(?, ?, ?, ?)', dane)
-    
-    dane = dane_z_pliku('dane_orders.txt')
+    cur.executemany('INSERT INTO oceny VALUES(?, ?, ?, ?)', dane)
+
+    dane = dane_z_pliku('przedmioty.txt')
     print(dane)
     dane.pop(0)  # usuń 1 rekord z listy
-    cur.executemany('INSERT INTO dane_orders VALUES(?, ?, ?, ?)', dane)
+    cur.executemany('INSERT INTO przedmioty VALUES(?, ?, ?, ?)', dane)
+
+    dane = dane_z_pliku('uczniowie.txt')
+    print(dane)
+    dane.pop(0)  # usuń 1 rekord z listy
+    cur.executemany('INSERT INTO uczniowie VALUES(?, ?, ?, ?, ?)', dane)
+    # ? = zastępnik
 
     con.commit()  # zatwirdzenie w bazie
     con.close()  # zamknięcie bazy
