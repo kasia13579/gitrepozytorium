@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS oceny;
 CREATE TABLE oceny
 (
-    id_ucznia INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_ucznia INTEGER,
     ocena INTEGER,
     data DATE(10),
     ID_przedmiotu INTEGER
@@ -9,7 +9,7 @@ CREATE TABLE oceny
 DROP TABLE IF EXISTS przedmioty;
 CREATE TABLE przedmioty
 (
-    id_przedmiotu INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_przedmiotu INTEGER,
     nazwa_przedmiotu TEXT,
     nazwisko_nauczyciela TEXT,
     imie_nauczyciela TEXT,
