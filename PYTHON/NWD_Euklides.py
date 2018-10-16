@@ -5,12 +5,12 @@
 #  
 
 
-def NWD(a, b):
+def nwd_klasyczny(a, b):
 
     while a != b:
         if a > b:
             a = a - b
-        if a < b:
+        else:
             b = b - a
 
     return a
@@ -19,7 +19,7 @@ def NWD(a, b):
 def main(args):
     a = int(input("Podaj 1. liczbę: "))
     b = int(input("Podaj 2. liczbę: "))
-    print("Największy wspólny dzielnik {} i {} to {}" .format(a, b, NWD(a, b)))
+    print("Największy wspólny dzielnik {} i {} to {}" .format(a, b, nwd_klasyczny(a, b)))
 
     return 0
 
