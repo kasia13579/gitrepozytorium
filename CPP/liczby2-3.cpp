@@ -1,7 +1,5 @@
 /*
  * liczby2-3.cpp
- * 
- * Copyright 2018  <>
  */
 
 
@@ -9,43 +7,57 @@
 
 using namespace std;
 
-
-int liczby2() {
-    int ile = 0; // deklaracja + inicjacja = definicja
-    for (int i = 1; i < 10; i++) {
-        for (int j = 0; j < 10; j++){
-             if (i != j){
-            cout << i << j << " ";
-            ile++;
+int liczby2()
+{
+    int ile = 0;  //deklaracja + inicjacja
+    
+    for (int d = 1; d < 10; d++)
+    {
+        for (int j = 0; j < 10; j++)
+        {   
+            if (d != j)
+            {
+                cout << d << j << " ";
+                ile++;
             }
         }
     }
+    
     return ile;
 }
 
-int liczby3() {
-    int ile2 = 0; // deklaracja + inicjacja = definicja
-    for (int k = 1; k < 10; k++) {
-        for (int l = 0; l < 10; l++){
-            for (int m = 0; m < 10; m++){
-                if (k != l && m ! = l  && k ! = m){
-                cout << k << l << m << " ";
-                ile2++;
+int liczby3()
+{
+    int ile = 0;  //deklaracja + inicjacja
+    
+    for (int s = 1; s < 10; s++)
+    {
+        for (int d = 0; d < 10; d++)
+        {   
+            for (int j = 0; j < 10; j++)
+            {   
+                if (s != d && s != j && d != j)
+                {
+                    cout << s << d << j << " ";
+                    ile++;
                 }
             }
         }
     }
-    return ile2;
+    
+    return ile;
 }
 
-int main(int argc, char **argv){
-
-    int ile = liczby2();
-    cout << "\n\nLiczby 2-cyfrowe: " << ile <<endl;
-	return 0;
+int main(int argc, char **argv)
+{
+	int ile = liczby2();
     
-    int ile2 = liczby3();
-    cout << "\n\nLiczby 3-cyfrowe: " << ile2 <<endl;
+    cout << "\n\nLiczb 2-cyfrowych: " <<  ile << endl;
+    
+    ile = liczby3();
+    
+    cout << "\n\nLiczb 3-cyfrowych: " <<  ile << endl;
+    
 	return 0;
 }
 

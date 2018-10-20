@@ -5,13 +5,12 @@ import sqlite3
 import csv
 import os.path
 
-
-def dane_z_pliku(nazwa_pliku):
+def dane_z_pliku(nazwa_pliku, separator=','):
     dane = []  # pusta lista na dane
     
-    if not os.path.isfile(nazwa_pliku, separator=','):
-            print("Plik {} nie istnieje !".format(nazwa_pliku))
-            return dane
+    if not os.path.isfile(nazwa_pliku):
+        print("Plik {} mie istnieje!".format(nazwa_pliku))
+        return dane
     
     with open(nazwa_pliku, 'r', newline='', encoding='utf-8') as plik:
         tresc = csv.reader(plik, delimiter=separator)
@@ -31,8 +30,6 @@ def kwerenda_1(cur):
     SELECT name, downloads FROM fakeapps WHERE downloads > (SELECT AVG(downloads) FROM fakeapps) ORDER BY downloads DESC LIMIT 5;
     SELECT COUNT(name) FROM fakeapps WHERE downloads > (SELECT AVG(downloads) FROM fakeapps);
     SELECT category, SUM(downloads) AS suma_pobran FROM fakeapps GROUP BY category ORDER BY suma_pobran DESC;
-
-
     """
     wyniki = cur.fetchall()  # pobranie wszystkich rekordów na raz
     for row in wyniki:  # odczytywanie kolejnych rekordów
@@ -44,34 +41,34 @@ def ile_kolumn(cur, tab):
     for kol in cur.execute("PRAGMA table_info('" + tab + "')"):
         i += 1
     return i
-    
-    
+
+
 def main(args):
-    baza_nazwa: 'uczniowie'
-    tabele = ['uczniowie', 'klasy', 'przedmioty', 'oceny']
+    baza_nazwa ='uczniowie'
+    tabele= ['uczniowie', 'klasy', 'przedmioty', 'oceny']
     
-    con = sqlite3.connect('magazyn.db')  # połączenie z bazą
+    con = sqlite3.connect(baza_nazwa + '.db')  # połączenie z bazą
     cur = con.cursor()  # utworzenie kursora
 
     # utworzenie tabeli w bazie
-    with open( baza_nazwa + '.sql', 'r') as plik:
+    with open(baza_nazwa + '.sql', 'r') as plik:
         cur.executescript(plik.read())
-        
+
     for tab in tabele:
-        ile = ile_kolumn(cur, tab)  # ile mamy pol w tabeli
-        dane = dane_z_pliku( tab + ".csv")
-        ile_d = len(dane[0])
-        if ile > ile_d:  # primary key autoincrement
-            dane2 = []  # tymczasowa lista na dane
+        ile = ile_kolumn(cur, tab)
+        dane = dane_z_pliku(tab + '.csv')
+        ile_d =len(dane[0])
+        if ile > ile_d:
+            dane2 = []
             for r in dane:
-                r.insert(0, None)  # dodanie none na początku listy
+                r.insert(0, None) # dodanie none na początku listy
                 dane2.append(r)
-            dane = dane2 
+            dane = dane2
             ile_d += 1
-           pholders = ','.join(['?'] * ile_d)
-        cur.executemany( 'INSERT INTO ' +tab + ' VALUES(' + pholders + ')', dane)
+        pholders = ','.join(['?'] * ile_d)
         
-        
+        cur.executemany('INSERT INTO ' + tab + ' VALUES(' + pholders + ')',dane)
+
 
     con.commit()  # zatwierdzenie zmian w bazie
     con.close()  # zamknięcie połączenia z bazą
@@ -80,4 +77,4 @@ def main(args):
 
 if __name__ == '__main__':
     import sys
-    sys.exit(main(sys.argv))
+sys.exit(main(sys.argv))
