@@ -12,7 +12,6 @@ using namespace std;
 void wypelnij(int tab[], int roz)
 {   
     cout << "Podaj " << roz << " liczb: " << endl;
-    
     for (int i = 0; i < roz; i++)
     {
         cin >> tab[i];
@@ -22,7 +21,6 @@ void wypelnij(int tab[], int roz)
 void wypelnij_losowe(int tab[], int roz)
 {   
     srand(time(NULL));  // inicjacja generatora pseudolosowych
-    
     for (int i = 0; i < roz; i++)
     {
         tab[i] = rand() % 101;  
@@ -40,7 +38,6 @@ void drukuj(int tab[], int roz)
 int min1(int tab[], int roz)
 {   
     int min = tab[0]; 
-    
     for( int i = 1; i < roz; i++)
 	{
 		if(tab[i] < min)
@@ -53,7 +50,6 @@ int min1(int tab[], int roz)
 int max1(int tab[], int roz)
 {   
     int max = tab[0];
-    
     for( int i = 1; i < roz; i++)
 	{
 		if(tab[i] > max)
