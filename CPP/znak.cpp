@@ -9,18 +9,47 @@ using namespace std;
 
 void licz_znaki(char tab[]) {
     int i = 0;
-    int biale = 0;
+    int biale, inter, licz;
+    biale = inter = licz = 0;
         while(tab[i] != '\0') {
             cout << tab[i] << " ";
-            if (tab[i] == ' ' || tab[i] == '\t')
-                biale++;
-            else
-                cout << tab[i];
+            //if (tab[i] == ' ' || tab[i] == '\t')
+            //  biale++;
+            // else
+            //     cout << tab[i];
+            switch(tab[i]) {
+                    case ' ': biale++; break;
+                    case '\t': biale++; break;
+                    case ',': inter++; break;
+                    case '.': inter++; break;
+                    default: licz++; break;
+                }
             i++;  // zwiększanie indeksu
         }
         cout << "\nZnaków białych: " << biale << endl;
+        cout << "\nZnaków interpunkcyjnych: " << inter << endl;
     }
 
+void ascii(char tab[]) {
+    int i = 0;
+    while(tab[i] != '\0') {
+            cout << (int)tab[i] << " ";
+            i++;
+        }
+    }
+    
+void zamiana_liter(char tab[]) {
+    int i = 0;
+    a = (int)tab[i]
+    while(tab[i] != '\0') {
+        if a < 91
+            znak = znak + 32;
+        (int)tab[i]
+        (char)(int)tab[i]
+            cout << (int)tab[i] << " ";
+            i++;
+        }
+    }
 
 int main(int argc, char **argv)
 {
@@ -29,7 +58,8 @@ int main(int argc, char **argv)
     cout << " Jak się nazywasz?";
     cin.getline(znaki, rozmiar);
     cout << " Cześć " << znaki << endl;
-    licz_znaki(znaki);	
+    ascii(znaki);
+    zamiana_liter(znaki);	
 	return 0;
 }
 
