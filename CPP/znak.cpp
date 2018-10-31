@@ -40,13 +40,14 @@ void ascii(char tab[]) {
     
 void zamiana_liter(char tab[]) {
     int i = 0;
-    a = (int)tab[i]
+    int kod;
     while(tab[i] != '\0') {
-        if a < 91
-            znak = znak + 32;
-        (int)tab[i]
-        (char)(int)tab[i]
-            cout << (int)tab[i] << " ";
+        kod = (int)tab[i];
+        if (kod >= 65 && kod <=90)
+            kod += 32;
+        else if (kod >= 97 && kod <=122)
+            kod -= 32;
+        cout << (char)kod;
             i++;
         }
     }
