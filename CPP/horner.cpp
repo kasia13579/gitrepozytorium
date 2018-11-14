@@ -10,8 +10,21 @@
 using namespace std;
 
 void drukujw(int st, float tbwsp[]) {
-    ;
+    int i = 0;
+    for (i=0; i < st; i++){
+        cout << tbwsp[i] << "x^" << st-i << "+";
+    }
+    cout << tbwsp[i] << endl;
 }
+
+float horner_it(int st, float tbwsp[], float x){
+    float wynik = tbwsp[0];
+    for (int i = 1; i < st+1; i++){
+        wynik = wynik * x + tbwsp[i];
+    }
+    return wynik;
+}
+
 
 int main(int argc, char **argv)
 {
@@ -32,14 +45,12 @@ int main(int argc, char **argv)
    
     cout << "Wartość wielomianu o postaci: ";
     drukujw(stopien, tbwsp);
-    cout << "\ndla x = " << x << " " << "Wynosi: ";
+    cout << "\ndla x = " << x << " " << "Wynosi: " << horner_it(stopien, tbwsp, x);
     cout << endl;
    
     return 0;
 }
 
-
-}
 
 
 
