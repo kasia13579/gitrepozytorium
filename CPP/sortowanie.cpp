@@ -49,6 +49,16 @@ void wypelnij_sort(int tab[], int roz) {
     cout << "liczba powtórzeń: " << licznik << endl;
 }
 
+voidsort_insert(int tab, int n( {
+    cout << "\nSortowanie pprzez wstawienie\n";
+    int i, j, tmp;
+    for  ( i = 1; i < n; i++) {
+        tmp = tab[i];
+        j = i -1;
+        }
+    }
+
+
 int main(int argc, char **argv)
 {
     int rozmiar = 40;
