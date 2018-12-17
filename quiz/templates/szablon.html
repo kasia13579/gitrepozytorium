@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="pl">
-<!--
-   szablon.html
--->
+<!-- szablon.html -->
 
 <head>
-    <meta charset="utf-8" />
+<meta charset="utf-8" />
     <title>{% block tytul %}{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
@@ -15,7 +13,5 @@
     
     {% block tresc %}
     {% endblock %}
-    
 </body>
-
 </html>

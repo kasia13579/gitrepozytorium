@@ -1,4 +1,4 @@
-CREATE TABLE kategorie
+CREATE TABLE kategorie(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     kategoria TEXT
 );
