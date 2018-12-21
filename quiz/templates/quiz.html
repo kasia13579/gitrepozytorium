@@ -11,13 +11,21 @@
 </head>
 
 <body>
-    <h1>Quiz</h1>
-    <h2>Pytania</h2>
+    <form></form>
+    <h1>Quiz - odpowiedz na pytania</h1>
     {% for p in query %}
     <p>
-        {{ p.id }} {{ p.pytanie }}
+        {{ p.id }} {{ p.pytanie }}<br>
+        <br>
+        {for o in p.odpowiedzi %}
+        <input type="radio" name="{{p.id}}" value="{{o.id}}">
+        {{o.odpowiedz}}
+        br
+        {% endfor %}
     </p>
     {% endfor %}
+    <input type="submit" value="Zapisz odpowiedzi">
+    </form>
 </body>
 
 </html>

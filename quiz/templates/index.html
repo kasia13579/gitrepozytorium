@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Quiz - pytania bez ściemy</title>
+    <meta name="generator" content="Geany 1.32" />
+    <style typ="text/css">
+        #menu li  { display : inline; }
+    </style>
+</head>
+
+<body>
+    <ul id="menu">
+        <li><a href="{{ url_for('index') }}">Strona glowna</a></li>
+        <li><a href="{{ url_for('lista') }}">Lista pytan</a></li>
+        <li><a href="{{ url_for('quiz') }}">Quiz</a></li>
+        <li><a href="#">Dodaj pytanie</a></li>
+    </ul>
+    
+    <h1>Ouiz - dla odważnych</h1>
+    
+    <div id="komunikaty">
+        {% with komunikaty = get_flashed_messages(with_categories=true) %}}
+        {% if komunikaty %
+    
+    </div>
+</body>
+
+</html>

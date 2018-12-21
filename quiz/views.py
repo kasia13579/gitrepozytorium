@@ -3,7 +3,7 @@
 #
 #  quiz.py
 #  
-from flask import Flask, g
+from flask import Flask
 from flask import render_template, request
 from modele import *
 
@@ -33,6 +33,15 @@ def lista():
 def quiz():
     pytania = Pytanie.select()
     return render_template('quiz.html', query = pytania)
+    if request.method == 'POST':
+        print(request.form)
+        wynik = 0
+        for pid, oid in request.form.items():
+            odp = Odpowiedz().get(Odpowiedz.id == ont(oid)).odpok
+            if odp:
+                wynik += 1
+            print("Poprawne:", wynik)
+            flash('Poprawne odpowiedzi
 
 
 @app.route("/klasa")
