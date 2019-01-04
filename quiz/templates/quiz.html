@@ -1,20 +1,10 @@
-<!DOCTYPE html>
-<html lang="pl">
-<!--
-   strona.html
--->
+{% extends "szablon.html" %}
+{% block tytul %}Quiz - odpowiedz na pytania{% endblock %}
+{% block h1 %}Quiz - odpowiedz na pytania{% endblock %}
 
-<head>
-<meta charset="utf-8" />
-<title>Moja strona</title>
-
-</head>
-
-<body>
-    <h1>Quiz – odpowiedz na pytania</h1>
-
+{% block tresc %}
     <form method="POST">
-
+    
     {% for p in query %}
     <p>
         {{ p.id }} {{ p.pytanie }}<br>
@@ -30,7 +20,4 @@
     {% endfor %}
     <input type="submit" value="Zapisz odpowiedzi">
     </form>
-
-</body>
-
-</html>
+{% endblock %}
