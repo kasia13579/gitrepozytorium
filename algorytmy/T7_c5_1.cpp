@@ -8,19 +8,13 @@ int main()
 {
     cout << "Podaj n: ";
     cin >> n;
-    if(n<3)
-		fib=1;
-	else
+    p1=p2=1;
+    if(n == 0) return 0;
+    for(i=3; i<=n; i++)
 	{
-		p1=p2=1;
-		i=3;
-		while(i<=n)
-		{
-			fib=p1+p2;
-			p2=p1;
-			p1=fib;
-			i++;
-		}
+		fib=p1+p2;
+		p2=p1;
+		p1=fib;
 	}
 	cout << "F(" << n << ")=" << fib << endl;
     return 0;

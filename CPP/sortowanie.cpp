@@ -78,7 +78,6 @@ void insert_sort(int tab[], int n)
         }
         tab[j=1] = tmp;
     }
-     
 }
 
 int main(int argc, char **argv)
