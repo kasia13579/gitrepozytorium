@@ -1,0 +1,12 @@
+{% extends "szablon.html" %}
+{% block tytul %}Quiz – strony nie znalezion{% endblock %}
+{% block h1 %}Quiz – blad{% endblock %}
+
+{% block tresc %}
+    <div class="alert alert-warning">
+        Przepraszamy wystapil blad
+        <p>
+        <a href="{{ url_for('index') }}">Strona glowna</a>
+        </p>
+    </div>
+{% endblock %}
