@@ -1,68 +1,50 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Formularze</title>
+<p>Wypełnij formularz:</p>
+<?php
+    if (isset($_POST['login'])) {
+      global $user;
+      foreach ($_POST as $k => $v) {
+        ${$k} = clrtxt($v);
+      }
+      print $login."<br>";
+      print $haslo."<br>";
+      print $email."<br>";
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-  </head>
-  <body>
-    <h1>Hello, world!</h1>
-    <form name="formularz" id="formularz" method="POST">
-      <table class="table">
-        <tr>
-          <td>
+      $ok = true;
+      if ($user->is_login($login)) {
+        echo '<p class="alert-warning">Podany login istnieje!</p>';
+        $ok = false;
+      }
+      if ($user->is_email($email)) {
+        echo '<p class="alert-warning">Podany email istnieje!</p>';
+        $ok = false;
+      }
+      if ($ok) {
+        $user->login = $login;
+        $user->haslo = $haslo;
+        $user->email = $email;
+        if ($user->savtb()) {
+          echo '<p class="text-info">Utworzono konto!</p>';
+          $user->login($login, $haslo, true);
+        }
+      }
+    } else {
+?>
+<form action="?id=<?php echo $id; ?>" method="POST">
+  <div class="form-group">
+    <label for="login">Login:</label>
+    <input type="text" name="login" id="login" maxlength="20" required>
+  </div>
+  <div class="form-group">
+    <label for="haslo">Hasło:</label>
+    <input type="password" name="haslo" id="password" maxlength="20" required>
+  </div>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" maxlength="30" required>
+  </div>
 
-      <label for="Imię">Imię</label>
-    </td>
-    <td>
-      <input type="text" name="imie" value="" placeholder="Imię">
-    </td>
-  </tr>
-<tr>
-  <td>
-    <label for="Nazwisko">Nazwisko</label>
-  </td>
-  <td>
-    <input type="text" name="Nazwisko" value="" placeholder="Nazwisko">
-  </td>
-</tr>
-
-</table>
-
-<label for="gender">Wybierz płeć:</label> <br>
-<input type="radio" name="gender" value="male" checked> Male<br>
-  <input type="radio" name="gender" value="female"> Female<br>
-  <input type="radio" name="gender" value="other"> Other<br>
-    <br>
-
-    <input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
-    <input type="checkbox" name="vehicle2" value="Car"> I have a car
-
-    <select name="cars">
-      <option value="volvo">Volvo</option>
-      <option value="saab">Saab</option>
-      <option value="fiat">Fiat</option>
-      <option value="Audi">Audi</option>
-    </select>
-
-    <select name="cars" size="4" multiple>
-      <option value="volvo">Volvo</option>
-      <option value="saab">Saab</option>
-      <option value="fiat">Fiat</option>
-      <option value="audi">Audi</option>
-    </select>
-
-    <br>
-    <textarea name="komentarz" rows="4" cols="80"></textarea>
-    <input type="submit" name="zapisz" value="zapisz">
-      <input type="reset" name="reset" value="reset">
-
-    </form>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
-  </body>
-</html>
+  <input type="submit" name="zapisz" value="Zapisz" class="btn btn-primary">
+</form>
+<?php
+  }
+?>
