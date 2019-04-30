@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS uczniowie;
+       DROP TABLE IF EXISTS uczniowie;
 CREATE TABLE uczniowie (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     imie TEXT,
