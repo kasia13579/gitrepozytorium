@@ -1,31 +1,9 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Szablon Bootstrapa</title>
+<?php if(!defined('IN_GS')){DIE('YOU CANNOT LOAD THIS PAGE DIRECTLY.'); } ?>
+<?php include("header.inc.php"); ?>?>
 
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+<body id="<?php get_page_slug(); ?>">
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
-
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
-  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
-  <!-- twoje style -->
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-
-
-
-
+<?php include("nav.inc.php"); ?>?>
 
   <!-- brak java scriptu -->
   <noscript>
@@ -48,52 +26,12 @@
 
   <!-- Nagłówek strony: menu, logo, breadcrumbs itp. -->
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Carla.pl</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Strona główna<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Układy flex</a>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Hobby
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Rower</a>
-          <a class="dropdown-item" href="#">Muzyka</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Książki</a>
-        </div>
-      </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
-  </nav>
 
   <div class="container-fluid">
   <div class="jumbotron">
-  <h1 class="display-4">Hello, world!</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-  <hr class="my-4">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  <p class="lead">
-    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-  </p>
-</div>
+  <h1><?php get_page_title(); ?></h1>
+    </div>
 
 <div class="container">
 
@@ -133,20 +71,15 @@
 
 
   <div class="container">
-    Klasa .container użyta została przykładowo, jeżeli Twój projekt wymaga .container-fluid
-    lub w ogóle rezygnuje z kontenerów, zmień ją.<br>
-    Nie muszisz trzymać się sztywnego podziału na trzy sekcje szablonu (nagłowek, treść, stopka).
+    <?php get_page_content(); ?>
+    </div>
+    <div class="col-sm-4">
+        <?php get_page_content(); ?>
+    </div>
   </div>
 
-  <!-- Treść główna -->
-  <div class="container">
 
-  </div>
-
-  <!-- Stopka strony: copyrights, dodatkowe linki itp. -->
-  <div class="container">
-
-  </div>
+<?php include("nav.inc.php"); ?>?>
 
   <!-- jQuery library -->
   <script src="js/jquery-3.3.1.min.js"></script>
